@@ -29,6 +29,18 @@ class App extends Component {
       }
     ]})
   }
+
+  nameChangeHandler = (event) => {
+    this.setState({
+      persons: [{
+        name: event.target.value,
+        age: "24"
+      }, {
+        name: 'Mohammed Ajmal',
+        age: "23"
+      }]
+    })
+  }
   
   /* Every react component has to return or render some html code which can be rendered to the dom to the screen*/
   render() {
@@ -42,16 +54,13 @@ class App extends Component {
         } > Switch Name </button>
         
         {/* Another Syntax for passing params in function
-
             onClick={() => this.swithNameHandler('Ismail')}
         */}
 
         <Person 
         name={this.state.persons[0].name} 
         age={this.state.persons[0].age}
-        click = {
-          this.swithNameHandler.bind(this, 'Ismail')
-        }
+        changed={this.nameChangeHandler}
         >loves JS</Person>
         <Person 
         name={this.state.persons[1].name} 
