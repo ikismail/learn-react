@@ -10,7 +10,8 @@ class App extends Component {
       // Our jsx expression must have one root element for each and every component
       <div className="App">
         <h1>This is Mohammed Ismail</h1>
-        <Person />
+        <Person name="Mohammed Ismail" age="24">loves JS</Person>
+        <Person name="Mohammed Ajmal" age="23"></Person>
       </div>
     );
 
