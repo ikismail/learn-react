@@ -1,10 +1,10 @@
 import React from 'react'
-
+import './Person.css'
 // Use function form of component as much as possible !!important
 const person = (props) => {
     //              👇 use {} for dynamic content
     return(
-        <div>
+        <div className="Person">
             <p>I'm {props.name} and I am {props.age} years old !</p>
             <p>{props.children}</p>
             <input type="text" onChange={props.changed} value={props.name}/>
@@ -14,7 +14,10 @@ const person = (props) => {
     )
 }
 
-// 👆 function which return a p element
+// 👆 function which return a html element
+
+
+
 
 export default person;
 

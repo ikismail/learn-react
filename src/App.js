@@ -44,11 +44,22 @@ class App extends Component {
   
   /* Every react component has to return or render some html code which can be rendered to the dom to the screen*/
   render() {
+
+    // inline styles for components
+    const style = {
+        backgroundColor: 'white',
+        border: '1px solid blue',
+        padding: '8px',
+        color: 'blue'
+    }
+
+
     return (
       // Our jsx expression must have one root element for each and every component
       <div className="App">
         <h1>This is Mohammed Ismail</h1>
         < button className = "btn btn-primary"
+        style={style}
         onClick = {
           () => this.swithNameHandler('Ismail')
         } > Switch Name </button>
