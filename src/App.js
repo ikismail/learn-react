@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {
+  Component
+} from 'react';
 import './App.css';
-
+import Person from './Person/Person'
 class App extends Component {
+  /* Every react component has to return or render some html code which can be rendered to the dom to the screen*/
   render() {
     return (
+      // Our jsx expression must have one root element for each and every component
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>This is Mohammed Ismail</h1>
+        <Person />
       </div>
     );
+
+
+    // 👆 this jsx html will gets compiled to 👇 this code
+   /*  
+   return React.createElement('div', {
+      className: 'App'
+    }, React.createElement('h1', null, 'This is Mohammed Ismail')) 
+    
+    */
   }
 }
 
