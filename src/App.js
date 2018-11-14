@@ -16,12 +16,12 @@ class App extends Component {
   }
 
 // Handler will be append for function for handling event
-  swithNameHandler = () => {
+  swithNameHandler = (newName) => {
     // console.log("clicked")
 
     this.setState({persons: [
       {
-        name: 'Ismail',
+        name: newName,
         age: "24"
       }, {
         name: 'Mohammed Ajmal',
@@ -36,9 +36,30 @@ class App extends Component {
       // Our jsx expression must have one root element for each and every component
       <div className="App">
         <h1>This is Mohammed Ismail</h1>
-        <button className="btn btn-primary" onClick={this.swithNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>loves JS</Person>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}></Person>
+        < button className = "btn btn-primary"
+        onClick = {
+          () => this.swithNameHandler('Ismail')
+        } > Switch Name </button>
+        
+        {/* Another Syntax for passing params in function
+
+            onClick={() => this.swithNameHandler('Ismail')}
+        */}
+
+        <Person 
+        name={this.state.persons[0].name} 
+        age={this.state.persons[0].age}
+        click = {
+          this.swithNameHandler.bind(this, 'Ismail')
+        }
+        >loves JS</Person>
+        <Person 
+        name={this.state.persons[1].name} 
+        age={this.state.persons[1].age}
+        click = {
+          this.swithNameHandler.bind(this, 'Mohammed Ismail')
+        }
+        ></Person>
       </div>
     );
 
