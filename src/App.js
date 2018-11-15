@@ -61,6 +61,28 @@ class App extends Component {
       color: "blue"
     };
 
+    let persons = null;
+
+    // Checking if the persons will show or not
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+            changed={this.nameChangeHandler}
+          >
+            loves JS
+          </Person>
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            click={this.swithNameHandler.bind(this, "Mohammed Ismail")}
+          />
+        </div>
+      );
+    }
+
     return (
       // Our jsx expression must have one root element for each and every component
       <div className="App">
@@ -74,25 +96,12 @@ class App extends Component {
           Toggle Person
         </button>
 
+        {/* 👇 injecting the persons object  */}
+        {persons}
+
         {/* Another Syntax for passing params in function
             onClick={() => this.swithNameHandler('Ismail')}
         */}
-        {this.state.showPersons ? (
-          <div>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-              changed={this.nameChangeHandler}
-            >
-              loves JS
-            </Person>
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}
-              click={this.swithNameHandler.bind(this, "Mohammed Ismail")}
-            />
-          </div>
-        ) : null}
       </div>
     );
 
