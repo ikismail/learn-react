@@ -54,6 +54,15 @@ class App extends Component {
       color: "white"
     };
 
+    const classes = [];
+
+    if(this.state.persons.length <= 2){
+      classes.push('red')
+    }
+    if(this.state.persons.length <= 1){
+      classes.push('bold')
+    }
+
     let persons = null;
 
     // Checking if the persons will show or not
@@ -93,6 +102,9 @@ class App extends Component {
       // Our jsx expression must have one root element for each and every component
       <div className="App">
         <h1>This is Mohammed Ismail</h1>
+
+        <h6 className={classes.join(' ')}>Dynamic Class Example</h6>
+
         <button
           style={style}
           onClick={this.togglePersons}
