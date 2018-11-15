@@ -8,7 +8,12 @@ const person = (props) => {
             <p>I'm {props.name} and I am {props.age} years old !</p>
             <p>{props.children}</p>
             <input type="text" onChange={props.changed} value={props.name}/>
-            <button onClick={props.click}>Updated state</button>
+            <a href = "javascriopt:;;"
+            onClick = {
+                props.click
+            }><i className = "fa fa-trash-o"
+            aria-hidden = "true" ></i> Delete</a>
+            
         </div>
     
     )
