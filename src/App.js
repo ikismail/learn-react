@@ -67,10 +67,20 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
+          {this.state.persons.map(person => {
+            return (
+              <Person
+                name={person.name}
+                age={person.age}
+                changed={this.nameChangeHandler}
+                click={this.swithNameHandler.bind(this, "Mohammed Ismail")}
+              />
+            );
+          })}
+          {/* <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age}
-            changed={this.nameChangeHandler}
+            
           >
             loves JS
           </Person>
@@ -78,7 +88,7 @@ class App extends Component {
             name={this.state.persons[1].name}
             age={this.state.persons[1].age}
             click={this.swithNameHandler.bind(this, "Mohammed Ismail")}
-          />
+          /> */}
         </div>
       );
     }
