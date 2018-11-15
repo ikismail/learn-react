@@ -48,10 +48,10 @@ class App extends Component {
   render() {
     // inline styles for components
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
       border: "1px solid blue",
       padding: "8px",
-      color: "blue"
+      color: "white"
     };
 
     let persons = null;
@@ -85,6 +85,8 @@ class App extends Component {
           /> */}
         </div>
       );
+
+      style.backgroundColor = "red"
     }
 
     return (
@@ -92,7 +94,6 @@ class App extends Component {
       <div className="App">
         <h1>This is Mohammed Ismail</h1>
         <button
-          className="btn btn-primary"
           style={style}
           onClick={this.togglePersons}
         >
