@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Person from "./Person/Person";
-import ErrorBoundary from "./ErrorBoundary/ErrorBoundary"
+import Person from "../components/persons/Person/Person";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary"
 class App extends Component {
   /* State cannot be changed, state can be changed and if it changes and thats
   the special thing, it only works on that state property, If it changes
