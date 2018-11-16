@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Person from "../components/persons/Person/Person";
-import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary"
+import Persons from "../components/persons/persons"
+import Cockpit from "../components/Cockpit/Cockpit"
 class App extends Component {
   /* State cannot be changed, state can be changed and if it changes and thats
   the special thing, it only works on that state property, If it changes
@@ -52,21 +52,7 @@ class App extends Component {
   be rendered to the dom to the screen*/
   render() {
     // inline styles for components
-    const style = {
-      backgroundColor: "green",
-      border: "1px solid blue",
-      padding: "8px",
-      color: "white"
-    };
-
-    const classes = [];
-
-    if (this.state.persons.length <= 2) {
-      classes.push("red");
-    }
-    if (this.state.persons.length <= 1) {
-      classes.push("bold");
-    }
+    
 
     let persons = null;
 
@@ -74,19 +60,12 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              < ErrorBoundary key = {
-                person.id
-              } > < Person
-                
-                name={person.name}
-                age={person.age}
-                changed={event => this.nameChangeHandler(event, person.id)}
-                click={() => this.deletePersonHandler(index)}
-              /></ErrorBoundary >
-            );
-          })}
+          < Persons 
+            persons={this.state.persons}
+            showPersons = {this.showPersons}
+            changed={this.nameChangeHandler}
+            clicked={this.deletePersonHandler}
+          />
           {/* <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age}
@@ -102,27 +81,16 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = "red";
     }
 
     return (
       // Our jsx expression must have one root element for each and every component
       <div className="App">
-        <h1>This is Mohammed Ismail</h1>
-
-        <h6 className={classes.join(" ")}>Dynamic Class Example</h6>
-
-        <button style={style} onClick={this.togglePersons}>
-          {" "}
-          Toggle Person
-        </button>
-
-        {/* 👇 injecting the persons object  */}
+        
+        <Cockpit 
+        persons={this.state.persons}
+        clicked = {this.togglePersons}/>
         {persons}
-
-        {/* Another Syntax for passing params in function
-            onClick={() => this.swithNameHandler('Ismail')}
-        */}
       </div>
     );
 
