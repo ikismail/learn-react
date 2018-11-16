@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary"
 class App extends Component {
   /* State cannot be changed, state can be changed and if it changes and thats
   the special thing, it only works on that state property, If it changes
@@ -75,13 +76,15 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <Person
-                key={person.id}
+              < ErrorBoundary key = {
+                person.id
+              } > < Person
+                
                 name={person.name}
                 age={person.age}
                 changed={event => this.nameChangeHandler(event, person.id)}
                 click={() => this.deletePersonHandler(index)}
-              />
+              /></ErrorBoundary >
             );
           })}
           {/* <Person
